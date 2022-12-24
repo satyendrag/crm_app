@@ -35,14 +35,14 @@ exports.signup = async (req, res) => {
       role,
       userStatus,
     });
-    const token = await jwt.sign({ _id: user._id }, config.JWT_SECRET, {
-      expiresIn: config.JWT_EXPIRY,
-    });
-    res.cookie("token", token, {
-      maxAge: new Date(Date.now() + 1000 * 60 * 30),
-      httpOnly: true,
-    });
-    
+    // const token = await jwt.sign({ _id: user._id }, config.JWT_SECRET, {
+    //   expiresIn: config.JWT_EXPIRY,
+    // });
+    // res.cookie("token", token, {
+    //   maxAge: new Date(Date.now() + 1000 * 60 * 30),
+    //   httpOnly: true,
+    // });
+
     user.password = undefined;
     res.status(201).send({
       success: true,
